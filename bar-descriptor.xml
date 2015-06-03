@@ -26,54 +26,50 @@
 
     <!-- A universally unique application identifier. Must be unique across all BlackBerry 10 applications.
          Using a reverse DNS-style name as the id is recommended. (Eg. com.example.ExampleApplication.) Required. -->
-    <id>com.amit.ShareMe.share</id>
+    <id>com.CellNinja.ShareAll</id>
     <configuration name="Device-Debug">
        <platformArchitecture>armle-v7</platformArchitecture>
-       <asset path="arm/o.le-v7-g/Pintext" entry="true" type="Qnx/Elf">Pintext</asset>
+       <asset path="arm/o.le-v7-g/ShareAll" entry="true" type="Qnx/Elf">ShareAll</asset>
     </configuration>
     <configuration name="Device-Release">
        <entryPointType>Qnx/Cascades</entryPointType>
        <platformArchitecture>armle-v7</platformArchitecture>
-       <asset path="arm/o.le-v7/Pintext.so" entry="true" type="Qnx/Elf">Pintext.so</asset>
+       <asset path="arm/o.le-v7/ShareAll.so" entry="true" type="Qnx/Elf">ShareAll.so</asset>
     </configuration>
     <configuration name="Device-Profile">
        <platformArchitecture>armle-v7</platformArchitecture>
-       <asset path="arm-p/o.le-v7-g/Pintext" entry="true" type="Qnx/Elf">Pintext</asset>
+       <asset path="arm-p/o.le-v7-g/ShareAll" entry="true" type="Qnx/Elf">ShareAll</asset>
     </configuration>
     <configuration name="Simulator-Debug">
        <platformArchitecture>x86</platformArchitecture>
-       <asset path="x86/o-g/Pintext" entry="true" type="Qnx/Elf">Pintext</asset>
+       <asset path="x86/o-g/ShareAll" entry="true" type="Qnx/Elf">ShareAll</asset>
     </configuration>
 
     <!-- The name that is displayed in the BlackBerry 10 application installer.
          May have multiple values for each language. See samples or xsd schema file. Optional. -->
-    <name>Share Me</name>
+    <name>ShareAll</name>
 
     <!-- A string value of the format <0-999>.<0-999>.<0-999> that represents application version which can be used to check for application upgrade.
          Values can also be 1-part or 2-part. It is not necessary to have a 3-part value.
          An updated version of application must have a versionNumber value higher than the previous version. Required. -->
-    <versionNumber>1.4.0</versionNumber>
+    <versionNumber>1.0.0</versionNumber>
 
     <!-- Fourth digit segment of the package version. First three segments are taken from the
          <versionNumber> element.  Must be an integer from 0 to 2^16-1 -->
-    <buildId>67</buildId>
+    <buildId>1</buildId>
 
     <!-- A string value (such as "v1", "2.5", or "Alpha 1") that represents the version of the application, as it should be shown to users. Optional. -->
     <!-- <versionLabel></versionLabel> -->
 
     <!-- Description, displayed in the BlackBerry 10 application installer.
          May have multiple values for each language. See samples or xsd schema file. Optional. -->
-    <description>The Share Me application use for share to Multiple platform</description>
+    <description>The ShareAll application</description>
 
     <!-- Copyright information. Optional. -->
     <!-- <copyright></copyright> -->
 
     <!--  Name of author which is used for signing. Must match the developer name of your development certificate. -->
-    <splashScreens>
-       <image>splashscreen_portrait.jpg</image>
-    </splashScreens>
-    <authorId>gYAAgCB18FOnRp3OXhhARu3yvg0</authorId>
-    <author>TOOFANIAPP@GMAIL.COM</author>
+    <author>CellNinja</author>
 
     <!--  Unique author ID assigned by signing authority. Required if using debug tokens. -->
     <!-- <authorId>ABC1234YjsnUk235h</authorId> -->
@@ -95,43 +91,9 @@
     <asset path="translations" dest="qm">
         <include name="*.qm"/>
     </asset>
-    <asset path="G:/APP making data/splashscreen_portrait.jpg">splashscreen_portrait.jpg</asset>
-    
-   
-   
-   <entryPoint id="ShareMe">
-		<name>ShareMe</name>
-	</entryPoint>
-
- <invoke-target id="com.amit.ShareMe.share">
-      <invoke-target-type>application</invoke-target-type>
-      <invoke-target-name>Share Me</invoke-target-name>
-      <filter>
-        <action>bb.action.SHARE</action>
-        <mime-type>text/plain</mime-type>
-            <property var="uris" value="data://"/>
-        
-              
-      </filter>
-      <icon>
-        <image>icon.png</image>
-      </icon>
-    </invoke-target>
-    
-   
-    
-      
-    
-  
-  
-   
 
     <!-- Request permission to execute native code.  Required for native applications. -->
     <permission system="true">run_native</permission>
-    <permission>bbm_connect</permission>
-    <permission>access_shared</permission>
-    <permission>access_pimdomain_notebooks</permission>
     <env var="LD_LIBRARY_PATH" value="app/native/lib:/usr/lib/qt4/lib"/>
-    <env var="CASCADES_THEME" value="default"/>
 
 </qnx>

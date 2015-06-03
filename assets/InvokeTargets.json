@@ -1,0 +1,47 @@
+{
+   "BBM" : {
+      "target" : "sys.bbm.sharehandler",
+      "action" : "bb.action.SHARE",
+      "mimeType" : "text/plain"
+   },
+   "BBM Groups" : {
+      "target" : "sys.bbgroups.sharehandler",
+      "action" : "bb.action.SHARE",
+      "mimeType" : "text/plain"
+   },
+   "Blaq" : {
+      "target" : "com.kisailabs.blaq.BB10.composer",
+      "action" : "bb.action.SHARE",
+      "mimeType" : "text/plain"
+   },
+   "Email" : {
+      "target" : "sys.pim.uib.email.hybridcomposer",
+      "action" : "bb.action.SHARE",
+      "mimeType" : "text/plain"
+   },
+   "Facebook" : {
+      "target" : "Facebook",
+      "action" : "bb.action.SHARE",
+      "mimeType" : "text/plain"
+   },
+   "LinkedIn" : {
+      "target" : "LinkedIn",
+      "action" : "bb.action.SHARE",
+      "mimeType" : "text/plain"
+   },
+   "Remember" : {
+      "target" : "sys.pim.remember.composer",
+      "action" : "bb.action.ADD",
+      "uri" : "remember://notebookentry?description="
+   },
+   "SMS" : {
+      "target" : "sys.pim.text_messaging.composer",
+      "action" : "bb.action.COMPOSE",
+      "mimeType" : "text/text_messaging"
+   },
+   "Twitter" : {
+      "target" : "Twitter",
+      "action" : "bb.action.SHARE",
+      "mimeType" : "text/plain"
+   }
+}

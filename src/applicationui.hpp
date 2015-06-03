@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011-2014 BlackBerry Limited.
+ * Copyright (c) 2011-2015 BlackBerry Limited.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,28 +18,19 @@
 #define ApplicationUI_HPP_
 
 #include <QObject>
-#include <QUrl>
-#include <QSettings>
-
-#include <src/FileSaver/FileSaver.h>
-#include "src/Settings/Settings.h"
-#include <src/bbm/BBMHandler.hpp>
-#include <bb/system/InvokeManager>
-#include <bb/system/InvokeRequest>
 #include <QStringList>
-#include <QObject>
-#include <bb/cascades/TextArea>
+#include <bb/data/JsonDataAccess>
+
 namespace bb
 {
     namespace cascades
     {
-        class Application;
         class LocaleHandler;
     }
     namespace system {
-            class InvokeManager;
-        }
-
+        class InvokeManager;
+        class InvokeRequest;
+    }
 }
 
 class QTranslator;
@@ -53,38 +44,27 @@ class ApplicationUI : public QObject
 {
     Q_OBJECT
 public:
-    ApplicationUI(bb::cascades::Application *app);
-            virtual ~ApplicationUI() { }
-            // Converts the passed QString to an UTF-8 encoded QByteArray
-            Q_INVOKABLE QByteArray encodeQString(const QString& toEncode) const;
+    ApplicationUI();
+    virtual ~ApplicationUI() {}
 
-
-
-
-
-
-  private Q_SLOTS:
-    void handleInvoke(const bb::system::InvokeRequest&);
-
-
-
+    Q_INVOKABLE void invokeSelected(const QStringList& selected, const QString& message);
 
 private slots:
     void onSystemLanguageChanged();
-
+    void invokeNext();
 
 private:
-
-    void initFullUI();
+    void invoke(const QString& platform, const QString& data);
 
     QTranslator* m_pTranslator;
     bb::cascades::LocaleHandler* m_pLocaleHandler;
+
     bb::system::InvokeManager* m_invokeManager;
 
+    QStringList invokeLeft;
+    QString messageToSend;
 
-    Settings *settings;
-    FileSaver* fileSaver;
-
+    bb::data::JsonDataAccess jda;
 };
 
 #endif /* ApplicationUI_HPP_ */

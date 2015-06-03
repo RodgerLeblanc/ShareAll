@@ -1,4 +1,4 @@
-QMAKE_TARGET  = Pintext
+QMAKE_TARGET  = ShareAll
 LUPDATE       = $(QNX_HOST)/usr/bin/lupdate
 LRELEASE      = $(QNX_HOST)/usr/bin/lrelease
 
