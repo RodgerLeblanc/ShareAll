@@ -1,0 +1,105 @@
+
+
+ <invoke-target id="com.amit.ShareMe.share">
+      <invoke-target-type>application</invoke-target-type>
+      <invoke-target-name>Share Me</invoke-target-name>
+      <filter>
+        <action>bb.action.SHARE</action>
+        <mime-type>*</mime-type>
+        <property var="uris" value="file://,http://,https://,data:://local,list://"/>
+            <property var="exts" value="jpg,png,txt,doc,pdf,qml,xml"/>
+        
+      </filter>
+      <icon>
+        <image>icon.png</image>
+      </icon>
+    </invoke-target>
+  
+  
+    
+    <invoke-target id="com.amit.ShareMe.compose">
+        <invoke-target-type>application</invoke-target-type>
+              <invoke-target-name>Share Me</invoke-target-name>
+        
+        <filter>
+            <action>bb.action.COMPOSE</action>
+            <mime-type>*</mime-type>
+            
+        </filter>
+        <icon>
+        <image>icon.png</image>
+      </icon>
+        <filter>
+    <action>bb.action.VIEW</action>
+    <action>bb.action.OPEN</action>
+    <mime-type>*</mime-type>
+    <property var="uris" value="file://"/>
+    <property var="exts" value="jpg,png,txt,doc,pdf,qml,xml,cpp,hpp,h"/>
+  </filter>
+    </invoke-target>
+  
+  
+  
+  
+   <invoke-target id="com.amit.ShareMe.share">
+        <invoke-target-type>application</invoke-target-type>
+              <invoke-target-name>Share Me</invoke-target-name>
+        
+        <icon>
+            <image>icon.png</image>
+        </icon>
+        <filter>
+            <action>bb.action.OPEN</action>
+            <mime-type>*</mime-type>
+            <property var="uris" value="http:,https:,ftp:,rtsp:,websearch:"/>
+        </filter>
+        <filter>
+            <action>bb.action.OPEN</action>
+            <mime-type>text/html</mime-type>
+            <mime-type>application/xhtml+xml</mime-type>
+            <mime-type>image/svg+xml</mime-type>
+            <property var="uris" value="file://"/>
+            <property var="exts" value="htm,html,xhtml,svg,txt,doc,xml,qml,png,cpp,hpp,h,text"/>
+        </filter>
+    </invoke-target>
+
+
+
+
+
+
+
+ switch (value) {
+            case (SystemUiResult.ConfirmButtonSelection):
+       
+                saved = _fileSaver.save(inputFieldTextEntry.text, prompt.inputFieldTextEntry)
+            systemToast.show()
+            console.debug()
+            break;
+            case (SystemUiResult.CancelButtonSelection):
+            console.log("new file canceled");
+            console.log(Text == "")
+            break;
+            default:
+            break;
+            }
+            
+            
+               SystemPrompt {
+            
+            
+            id: prompt
+            title: "Enter a new file name" + fileName.text
+          dismissAutomatically: true
+          inputField.emptyText: "please enter new filename"
+          confirmButton.label: qsTr("ok")
+          confirmButton.enabled: true
+          cancelButton.label: qsTr("cancel")
+          cancelButton.enabled: true
+          onFinished: {
+              saved = _fileSaver.save(textArea.text, inputField.text)
+              systemToast.show()
+          console.debug()
+           
+            }
+        }
